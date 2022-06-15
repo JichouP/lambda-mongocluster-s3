@@ -29,7 +29,7 @@ ___
 
 | Variable | Description | Required? |
 | --- | --- | --- |
-| MONGODUMP_OPTIONS | Your mongodump command options separated by a space (without `mongodump` at the beginning), for instance `--uri "mongodb+srv://[user]:[pass]@[host]/[name]"` Refer to the [mongodump docs](https://docs.mongodb.com/database-tools/mongodump/) for a list of available options. Important: do not include the `--out` or `-o` option. | Yes |
+| MONGODUMP_URIS | Your mongodump uri lists options separated by a space (without `mongodump` at the beginning), for instance `mongodb+srv://[user]:[pass]@[host]/[name]` Refer to the [mongodump docs](https://docs.mongodb.com/database-tools/mongodump/) for a list of available options. Important: do not include the `--out` or `-o` option. | Yes |
 | S3_BUCKET | Name of the S3 bucket | Yes |
 | S3_STORAGE_CLASS | S3 storage class for the backup. Refer to the [S3 SDK docs](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html) for a list of available options. | No. Default is `STANDARD` |
 | ZIP_FILENAME | Name of the ZIP archive | No. Default is `mongodb_backup` |
@@ -38,6 +38,7 @@ ___
 ## Changelog
 
 **v1.2.0**
+
 - Updated mongodump from 4.0.5 to 100.1.1
 - The Mongo connection string is no longer fixed at a certain format. You now have the flexibility to specify the URI or host in the format you need, as well as other mongodump command options.
 - There is a new env variable through which you can specify the ZIP filename (it is no longer the database name)
